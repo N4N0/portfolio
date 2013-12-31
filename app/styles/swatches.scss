@@ -1,0 +1,28 @@
+
+$red: #FF2C00;
+$yellow: yellow;
+$green: green;
+$blue: blue;
+$orange: #FF7F00;
+$pink: #DE0052;
+
+$black: black;
+$white: white;
+
+$mainColor: $red;
+
+$pageBackground: $white;
+
+$strongHeadline: $black;
+$altColorHeadline: $pink;
+$mediumHeadline: lighten($black, 30%);
+$lightHeadline: lighten($black, 50%);
+
+$strongBodyText: lighten($black, 10%);
+$bodyText: lighten($black, 30%);
+$lightBodyText: lighten($black, 60%);
+
+$lightBorder: lighten($black, 60%);
+
+$defaultIconColor: lighten($black, 30%);
+$removeColor: $red;
