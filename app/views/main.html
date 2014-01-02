@@ -1,20 +1,20 @@
 <div id="profile" class="default-style">
   <header>
-    <h1 class="text-muted">{{profile.firstName}} {{profile.lastName}}</h1>
-    <p id="profile-headline">{{profile.headline}}</p>
+    <h1>{{profile.firstName}} {{profile.lastName}}</h1>
+    <p id="profile-headline" contentEditable="true" ng-model="profile.headline"></p>
     <img ng-src="{{profile.pictureUrl}}"/>
   </header>
   <section class="resume" ng-hide="hideSummary">
-    <pre>{{profile.summary}}</pre>
+    <pre contentEditable="true" ng-model="profile.summary"></pre>
   </section>
   <section class="experience">
     <h2>Experiencia laboral</h2>
     <ul ng-hide="hidePositions">
       <li ng-repeat="position in profile.positions.values" ng-hide="position.hide">
         <header>
-          <h3 class="company">{{position.company.name}}</h3><span class="title">{{position.title}}</span>
+          <h3 class="company" contentEditable="true" ng-model="position.company.name"></h3><span class="title" contentEditable="true" ng-model="position.title"></span>
         </header>
-        <pre class="sumary">{{position.summary}}</pre>
+        <pre class="summary" contentEditable="true" ng-model="position.summary"></pre>
       </li>
     </ul>
     <ul class="hidden">
@@ -29,8 +29,8 @@
     <h2>Formación</h2>  
     <ul>
       <li ng-repeat="education in profile.educations.values" ng-hide="education.hide">
-        <span>{{education.degree}}</span>
-        <span>{{education.schoolName}}</span>
+        <span contentEditable="true" ng-model="education.degree"></span>
+        <span contentEditable="true" ng-model="education.schoolName"></span>
         <i class="icon-remove" ng-click="hide(education, $parent.hiddenEducations)"></i>
       </li>
     </ul>
@@ -44,7 +44,7 @@
   <section class="skills">
     <h2>Aptitudes</h2>  
     <ul>
-      <li ng-repeat="skill in profile.skills.values" ng-hide="skill.hide">{{skill.skill.name}}<i class="icon-remove" ng-click="hide(skill, $parent.hiddenSkills)"></i></li>
+      <li ng-repeat="skill in profile.skills.values" ng-hide="skill.hide"><span contentEditable="true" ng-model="skill.skill.name"></span><i class="icon-remove" ng-click="hide(skill, $parent.hiddenSkills)"></i></li>
     </ul>
     <ul class="hidden">
       <li ng-repeat="skill in hiddenSkills">
