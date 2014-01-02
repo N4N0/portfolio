@@ -1,4 +1,3 @@
-
 $red: #FF2C00;
 $yellow: yellow;
 $green: green;
@@ -11,8 +10,21 @@ $white: white;
 
 $mainColor: $red;
 
-$pageBackground: $white;
+/*******
+	Backgrounds
+*******/
+$mainBackground: $white;
+$pageBackground: $mainBackground;
+$dropDownBackground: darken($mainBackground, 5%);
 
+/*******
+	Shadows
+*******/
+$uiShadowColor: rgba(0, 0, 0, 0.5);
+
+/*******
+	Text
+*******/
 $strongHeadline: $black;
 $altColorHeadline: $pink;
 $mediumHeadline: lighten($black, 30%);
@@ -22,7 +34,22 @@ $strongBodyText: lighten($black, 10%);
 $bodyText: lighten($black, 30%);
 $lightBodyText: lighten($black, 60%);
 
+$dropDownTextColor: lighten($black, 30%);
+
+/*******
+	Borders
+*******/
 $lightBorder: lighten($black, 60%);
 
+$dropDownBorder: lighten($uiShadowColor, 50%);
+
+/*******
+	Icons
+*******/
 $defaultIconColor: lighten($black, 30%);
 $removeColor: $red;
+
+/*******
+	Buttons
+*******/
+$mainButton: lighten($black, 70%);

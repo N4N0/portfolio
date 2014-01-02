@@ -2,6 +2,7 @@
 @import "normalize";
 @import "icons";
 @import "swatches";
+@import "buttons";
 
 /* Space out content a bit */
 body {
@@ -16,6 +17,104 @@ body {
 .footer {
   padding-left: 15px;
   padding-right: 15px;
+}
+button {
+  @extend .button;
+}
+/*icons*/
+.icon-remove, .icon-add, .icon-edit, .icon-restore {
+  font-size: 0.8em;
+  color: $defaultIconColor;
+  cursor: pointer;
+}
+.icon-remove {
+  @extend .icon-cancel;
+  &:hover{
+    color: $red;
+  }
+}
+.icon-add {
+  @extend .icon-plus;
+}
+
+.icon-restore {
+  @extend .icon-loading;
+}
+.position-item, .education-item {
+  position: relative;
+}
+.experience, .education {
+  position: relative;
+  .icon-remove {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  li:hover {
+    .icon-remove {
+      display: inline-block;
+    }
+  }
+}
+.add-item {
+  display: none; 
+  button {
+    position: absolute;
+    top: 33px;
+    right: 21px;  
+  }
+  ul {
+    position: absolute;
+    z-index: 1;
+    max-width: 100%;
+    top: 16px;
+    right: 20px;
+    display: none;
+    padding: 0;
+    @include box-shadow(0 0 3px $uiShadowColor);
+    background: $mainBackground;
+    li {
+      cursor: pointer;
+      padding: 10px 10px;
+      font-size: 0.8em;
+      border-bottom: 1px solid $dropDownBorder;
+      background-color: $dropDownBackground;
+      color: $dropDownTextColor;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      &:hover {
+        background-color: darken($dropDownBackground, 5%);
+      }
+      i {
+        margin-right: 0.3em;
+      }
+      &:last-child {
+        background-color: darken($dropDownBackground, 10%);
+        text-align: center;
+        &:hover {
+          background-color: darken($dropDownBackground, 30%);
+          i {
+            color: $white;
+          }
+          color: $white;  
+        }
+        span {
+          font-style: bold;
+        }
+      }
+      
+    }
+  }
+  ul.expanded {
+    display: block;
+  }
+}
+section:hover {
+  .add-item {
+    display: block;
+  }
 }
 
 .default-style {
@@ -61,36 +160,10 @@ body {
     list-style: none;
   }
 
-  /*icons*/
-  .icon-remove, .icon-add, .icon-edit {
-    font-size: 0.8em;
-    margin-left: 4px;
-    color: $defaultIconColor;
-    cursor: pointer;
-  }
-  .icon-remove {
-    @extend .icon-cancel;
-    &:hover{
-      color: $red;
-    }
-  }
-  .icon-add {
-    @extend .icon-plus;
-  }
   
-  .experience, .education {
-    .icon-remove {
-      display: none;
-    }
-    li:hover {
-      .icon-remove {
-        display: inline-block;
-      }
-    }
-  }
 
   .skills {
-    li {
+    .skill-item {
       display: inline-block;
       color: $bodyText;
       border: 1px solid $lightBorder;
@@ -118,7 +191,7 @@ body {
     width: 780px;
     padding: 60px;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px $uiShadowColor;
     background: $pageBackground;
   }
 }
@@ -151,8 +224,8 @@ body {
     }
     h2 {
       @include box-sizing(border-box);
-      text-align: right;
-      width: 37%;
+      float: right;
+      
       display: inline-block;
       vertical-align: top;
       padding-right: 20px;
@@ -160,7 +233,13 @@ body {
     }
     section {
       margin-top: 45px;
-      ul:not(.hidden) {
+      > header {
+        width: 37%;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+      }
+      .item-list {
         @include box-sizing(border-box);
         width: 62%;
         display: inline-block;
@@ -178,28 +257,20 @@ body {
       }
     }
     .experience {
-      ul:not(.hidden) {
+      .item-list {
         margin-top: 4px;
       }
     }
     .education {
-      ul:not(.hidden) {
+      .item-list {
         margin-top: 7px;
       }
     }
-    .position {
-      cursor: pointer;
-      &:hover {
-        @include box-shadow(0 0 1px $black);
-      }
-    }
-    .position-editor {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      background: $pageBackground;
-    }
+    // .position {
+    //   cursor: pointer;
+    //   &:hover {
+    //     @include box-shadow(0 0 1px $black);
+    //   }
+    // }
   }
 }

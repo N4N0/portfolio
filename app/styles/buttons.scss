@@ -1,0 +1,25 @@
+button {}
+.button {
+	cursor: pointer;
+	font-size: 0.9em;
+  	color: $white;
+  	border: 1px solid darken($mainButton, 10%);
+  	border-radius: 2px;
+  	background-color: $mainButton;
+  	padding: 3px 5px;
+  	i {
+  		font-size: 0.8em;
+  		margin-right: 0.2em
+  	}
+  	&:hover, &:focus {
+  		background-color: darken($mainButton, 10%);
+  		border: 1px solid darken($mainButton, 20%);
+  	}
+  	&:focus {
+  		outline: none;
+  	}
+  	&:active {
+  		background-color: $mainButton;
+  		order: 1px solid darken($mainButton, 30%);
+  	}
+}

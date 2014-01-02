@@ -3,6 +3,19 @@
 angular.module('portfolioApp')
 .controller 'MainCtrl', ['$scope', '$http', 'linkedIn', ($scope, $http, linkedIn) ->
 	
+	templates =
+		position:
+			company:
+				name: "Empresa"
+			title: "Puesto profesional"
+			summary: "Descripción"
+		education:
+			degree: "Titulo"
+			schoolName: "Institución"
+		skill:
+			skill:
+				name: "aptitud"
+
 	authCallback = ->
 		linkedIn.getProfile (data) ->
 			$scope.profile = data.values[0]
@@ -17,10 +30,11 @@ angular.module('portfolioApp')
 	$scope.hide = (item, hiddenArray) ->
 		item.hide = true
 		hiddenArray.push item
-		console.log hiddenArray
 	
 	$scope.show = (item, index, hiddenArray) ->
 		item.hide = false
 		hiddenArray.splice index, 1
 
+	$scope.new = (type, array) ->
+		array.unshift angular.copy templates[type]
 ]

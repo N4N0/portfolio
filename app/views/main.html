@@ -8,49 +8,71 @@
     <pre contentEditable="true" ng-model="profile.summary"></pre>
   </section>
   <section class="experience">
-    <h2>Experiencia laboral</h2>
-    <ul ng-hide="hidePositions">
-      <li ng-repeat="position in profile.positions.values" ng-hide="position.hide">
+    <header>
+      <h2>Experiencia laboral</h2>
+      <div class="add-item">
+        <button ng-click="showMorePositions = !showMorePositions"><i class="icon-plus"></i><span>Añadir</span></button>
+        <ul ng-class="{expanded: showMorePositions}" ng-mouseleave = "showMorePositions = false" ng-click="showMorePositions = false">
+          <li ng-repeat="position in hiddenPositions" ng-click="show(position, $index, $parent.hiddenPositions)">
+            <i class="icon-restore"></i>
+            <span>{{position.company.name}}</span>
+            <span>{{position.title}}</span> 
+          </li>
+          <li class="new-item" ng-click="new('position', profile.positions.values)"><i class="icon-add"></i><span>Nuevo</span></li>
+        </ul>
+      </div>
+    </header>
+    <ul class="item-list" ng-hide="hidePositions">
+      <li class="position-item" ng-repeat="position in profile.positions.values" ng-if="!position.hide">
         <header>
           <h3 class="company" contentEditable="true" ng-model="position.company.name"></h3><span class="title" contentEditable="true" ng-model="position.title"></span>
         </header>
         <pre class="summary" contentEditable="true" ng-model="position.summary"></pre>
-      </li>
-    </ul>
-    <ul class="hidden">
-      <li ng-repeat="position in hiddenPositions">
-        <span>{{position.company.name}}</span>
-        <span>{{position.title}}</span>
-        <i class="icon-add" ng-click="show(position, $index, $parent.hiddenPositions)"></i>
+        <i class="icon-remove" ng-click="hide(position, $parent.hiddenPositions)"></i>
       </li>
     </ul>
   </section>
   <section class="education">
-    <h2>Formación</h2>  
-    <ul>
-      <li ng-repeat="education in profile.educations.values" ng-hide="education.hide">
+    <header>  
+      <h2>Formación</h2>  
+      <div class="add-item">  
+        <button ng-click="showMoreEducations = !showMoreEducations"><i class="icon-plus"></i><span>Añadir</span></button>
+        <ul ng-class="{expanded: showMoreEducations}" ng-mouseleave = "showMoreEducations = false" ng-click="showMoreEducations = false">
+          <li ng-repeat="education in hiddenEducations" ng-click="show(education, $index, $parent.hiddenEducations)">
+            <i class="icon-restore"></i>
+            <span>{{education.degree}}</span>
+          </li>
+          <li class="new-item" ng-click="new('education', profile.educations.values)"><i class="icon-add"></i><span>Añadir</span></li>
+        </ul>
+      </div>
+    </header>
+    <ul class="item-list">
+      <li class="education-item" ng-repeat="education in profile.educations.values" ng-if="!education.hide">
         <span contentEditable="true" ng-model="education.degree"></span>
         <span contentEditable="true" ng-model="education.schoolName"></span>
         <i class="icon-remove" ng-click="hide(education, $parent.hiddenEducations)"></i>
       </li>
     </ul>
-    <ul class="hidden">
-      <li ng-repeat="education in hiddenEducations">
-        <span>{{education.degree}}</span>
-        <i class="icon-add" ng-click="show(education, $index, $parent.hiddenEducations)"></i>
-      </li>
-    </ul>
+    
   </section>
   <section class="skills">
-    <h2>Aptitudes</h2>  
-    <ul>
-      <li ng-repeat="skill in profile.skills.values" ng-hide="skill.hide"><span contentEditable="true" ng-model="skill.skill.name"></span><i class="icon-remove" ng-click="hide(skill, $parent.hiddenSkills)"></i></li>
+    <header>  
+      <h2>Aptitudes</h2>
+      <div class="add-item">  
+        <button ng-click="showMoreSkills = !showMoreSkills"><i class="icon-plus"></i><span>Añadir</span></button>
+        <ul ng-class="{expanded: showMoreSkills}" ng-mouseleave = "showMoreSkills = false" ng-click="showMoreSkills = false">
+          <li ng-repeat="skill in hiddenSkills" ng-click="show(skill, $index, $parent.hiddenSkills)">
+            <i class="icon-restore"></i>
+            <span>{{skill.skill.name}}</span>
+          </li>
+          <li class="new-item" ng-click="new('skill', profile.skills.values)"><i class="icon-add"></i><span>Añadir</span></li>
+        </ul>
+      </div>  
+    </header>
+    <ul class="item-list">
+      <li class="skill-item" ng-repeat="skill in profile.skills.values" ng-hide="skill.hide"><span contentEditable="true" ng-model="skill.skill.name"></span><i class="icon-remove" ng-click="hide(skill, $parent.hiddenSkills)"></i></li>
     </ul>
-    <ul class="hidden">
-      <li ng-repeat="skill in hiddenSkills">
-        <span>{{skill.skill.name}}</span>
-        <i class="icon-add" ng-click="show(skill, $index, $parent.hiddenSkills)"></i>
-      </li>
+    
   </section>
 </div> 
 <script type="in/Login"></script>
