@@ -95,10 +95,9 @@ button {
         text-align: center;
         &:hover {
           background-color: darken($dropDownBackground, 30%);
-          i {
+          i, span {
             color: $white;
           }
-          color: $white;  
         }
         span {
           font-style: bold;
@@ -129,29 +128,13 @@ section:hover {
   h3 {
     color: $mediumHeadline;
   }
-  p, pre, textarea {
+  p, span, pre{
     color: $bodyText;
-    font-size: 0.85em;
     font-family: Helvetica!important;
   }
-
-  input, textarea {
-    width: auto;
-    outline: none;
-    border: none;
-    margin: 0;
+  p, pre {
+    font-size: 0.85em;
   }
-  textarea {
-    width: 100%;
-    height: 100%;
-  }
-  .experience {
-    .title {
-      font-style: italic;
-      color: $lightBodyText;
-    }
-  }
-
   section {
     position: relative;
   }
@@ -160,7 +143,36 @@ section:hover {
     list-style: none;
   }
 
-  
+  .personal-info {
+    display: inline-block;
+    vertical-align: top;
+    width: 86%;
+    h1 {
+      margin: 0;      
+    }
+    h1 + span {
+      margin-bottom: 10px;
+    }
+    span {
+      display: block;
+    }
+    .email {
+      font-size: 0.85em;
+      color: $lightBodyText;
+    }
+  }
+
+  .profile-picture {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .experience {
+    .title {
+      font-style: italic;
+      color: $lightBodyText;
+    }
+  }
 
   .skills {
     .skill-item {
@@ -190,6 +202,7 @@ section:hover {
   .container {
     width: 780px;
     padding: 60px;
+    padding-top: 100px;
     margin: 0 auto;
     box-shadow: 0 0 10px $uiShadowColor;
     background: $pageBackground;
@@ -255,6 +268,9 @@ section:hover {
           }
         }
       }
+    }
+    .resume {
+      margin-top: 0;
     }
     .experience {
       .item-list {

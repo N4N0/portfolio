@@ -2,15 +2,18 @@
 .button {
 	cursor: pointer;
 	font-size: 0.9em;
-  	color: $white;
   	border: 1px solid darken($mainButton, 10%);
   	border-radius: 2px;
   	background-color: $mainButton;
   	padding: 3px 5px;
   	i {
-  		font-size: 0.8em;
+  		color: $white;
+      font-size: 0.8em;
   		margin-right: 0.2em
   	}
+    span {
+      color: $white!important;
+    }
   	&:hover, &:focus {
   		background-color: darken($mainButton, 10%);
   		border: 1px solid darken($mainButton, 20%);
