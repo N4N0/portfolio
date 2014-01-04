@@ -2,6 +2,7 @@
 
 angular.module('portfolioApp')
   .directive 'contenteditable', ->
+    restrict: 'A'
     require: 'ngModel'
     link: (scope, element, attrs, ctrl) ->
       element.on 'blur', ->
