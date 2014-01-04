@@ -1,8 +1,12 @@
 <div id="profile" class="default-style">
   <header>
-    <h1>{{profile.firstName}} {{profile.lastName}}</h1>
-    <p id="profile-headline" contenteditable="true" ng-model="profile.headline"></p>
-    <img ng-src="{{profile.pictureUrl}}"/>
+    <img class="profile-picture" ng-src="{{profile.pictureUrl}}"/>
+    <div class="personal-info">
+      <h1>{{profile.firstName}} {{profile.lastName}}</h1>
+      <span id="profile-headline" contenteditable="true" ng-model="profile.headline"></span>
+      <span class="email" contenteditable ng-model="profile.emailAddress"></span>
+      <span class="phone" contenteditable ng-model="profile.phoneNumber"></span>
+    </div>
   </header>
   <section class="resume" ng-hide="hideSummary">
     <pre contenteditable="true" ng-model="profile.summary"></pre>
